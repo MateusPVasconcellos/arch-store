@@ -1,12 +1,13 @@
 import { AxiosResponse } from "axios";
 import { AxiosClient } from "../config/axios/axios-config";
+import { Product } from "../interfaces/product";
 const BASE_URL = "https://dummyjson.com/";
 
 class Api {
-  async get(url: string): Promise<AxiosResponse | Error> {
+  async get(url: string): Promise<Product[] | undefined> {
     try {
-      const data = await AxiosClient.get(`${BASE_URL}${url}`);
-      return data.data;
+      const response = await AxiosClient.get(`${BASE_URL}${url}`);
+      return response.data;
     } catch (e) {
       console.error(e);
       throw new Error("Erro ao listar registros.");
@@ -15,8 +16,8 @@ class Api {
 
   post(url: string, item: any): Promise<AxiosResponse | Error> {
     try {
-      const data = AxiosClient.post(`${BASE_URL}${url}`, { item });
-      return data;
+      const response = AxiosClient.post(`${BASE_URL}${url}`, { item });
+      return response;
     } catch (e) {
       console.error(e);
       throw new Error("Erro ao inserir registros.");
@@ -25,8 +26,8 @@ class Api {
 
   put(url: string, item: any): Promise<AxiosResponse | Error> {
     try {
-      const data = AxiosClient.put(`${BASE_URL}${url}`, { item });
-      return data;
+      const response = AxiosClient.put(`${BASE_URL}${url}`, { item });
+      return response;
     } catch (e) {
       console.error(e);
       throw new Error("Erro ao listar registros.");
