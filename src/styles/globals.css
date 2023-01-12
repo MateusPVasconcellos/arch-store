@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 1rem;
+  width: 100vw;
+  position: absolute;
+}
+
+body::after {
+  content: "";
+  display: block;
+  height: 50px;
+}
