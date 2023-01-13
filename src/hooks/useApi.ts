@@ -1,32 +1,40 @@
 import { useEffect, useState } from "react";
 import { Product } from "../interfaces/product";
 import api from "../services/api";
+import { useRouter } from "next/router";
+import { ImagesEnum } from "../enums/images";
 
 export const useApi = () => {
-  const [categories, setCategories] = useState<Product[]>();
+  const [categories, setCategories] = useState<any[]>([]);
+  const router = useRouter();
+  const path = router.pathname;
+  const [productsCategory, setProductsCategory] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState({
     loadingCategories: false,
     loadingProducts: false,
   });
 
   useEffect(() => {
-    getAllCategories();
+    if (path === "/") {
+      getAllCategories();
+    }
   }, []);
 
   const getAllCategories = async () => {
     try {
       setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
       const data = await api.get("products/categories");
-      let filter1 = "smartphones";
-      let filter2 = "laptops";
-      let filter3 = "mens-watches";
-      let filter4 = "womens-watches";
+      const filter1 = "smartphones";
+      const filter2 = "laptops";
+      const filter3 = "mens-watches";
+      const filter4 = "womens-watches";
 
       const filters = [filter1, filter2, filter3, filter4];
 
-      const formatedData = data?.filter((el) => {
+      const formatedData = data?.filter((el: any) => {
         return filters.includes(el.toString());
       });
+
       if (formatedData) {
         setCategories(formatedData);
       }
@@ -49,5 +57,5 @@ export const useApi = () => {
     }
   };
 
-  return { categories };
+  return { categories, getAllProductsCategory };
 };

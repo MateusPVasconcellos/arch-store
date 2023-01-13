@@ -2,10 +2,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Category from "../components/Category";
 import { useApi } from "../hooks/useApi";
-import Api from "../services/api";
+import { Product } from "../interfaces/product";
 
 export default function Home() {
-  const { categories } = useApi();
+  const { categories, getAllProductsCategory } = useApi();
 
   return (
     <div className="mx-auto inline-block w-full justify-center text-base">
@@ -29,14 +29,18 @@ export default function Home() {
           </div>
         </div>
         <div className="flex">
-          {categories?.map((el) => (
-            <div className="flex h-96 w-11/12 justify-evenly pt-10" key={el.id}>
-              <Category
-                imageUrl="https://m.media-amazon.com/images/I/51ZL3TV7D1L._SX360_BO1,204,203,200_.jpg"
-                categoryName={el.toString()}
-              ></Category>
-            </div>
-          ))}
+          {categories.length &&
+            categories.map((category) => (
+              <div
+                className="flex h-96 w-11/12 justify-evenly pt-10"
+                key={category.id}
+              >
+                <Category
+                  imageUrl=""
+                  categoryName={category.toString()}
+                ></Category>
+              </div>
+            ))}
         </div>
       </main>
     </div>
