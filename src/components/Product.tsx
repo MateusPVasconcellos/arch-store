@@ -9,7 +9,7 @@ interface ProductProps {
 
 function Product({ imageUrl, productName, price, description }: ProductProps) {
   return (
-    <div className="mt-10 ml-12 flex max-h-72 bg-gray-300 hover:bg-gray-500 dark:bg-gray-600">
+    <div className="mt-10 ml-12 flex max-h-72 rounded bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-800">
       <section className="m-4 block max-h-64 w-44 justify-center">
         <div className="relative m-2 block h-40 w-40">
           <Image src={imageUrl} alt="products" fill quality={100} />
