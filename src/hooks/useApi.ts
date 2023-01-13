@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
-import { Product } from "../interfaces/product";
 import api from "../services/api";
 import { useRouter } from "next/router";
 import { ImagesEnum } from "../enums/images";
+import { IProduct } from "../interfaces/IProduct";
 
 export const useApi = () => {
   const [categories, setCategories] = useState<any[]>([]);
+  const [laptops, setLaptops] = useState<IProduct[]>([]);
+  const [mensWatches, setMensWatches] = useState<IProduct[]>([]);
+  const [smartphones, setSmartphones] = useState<IProduct[]>([]);
+  const [womensWatches, setWomensWatches] = useState<IProduct[]>([]);
   const router = useRouter();
   const path = router.pathname;
-  const [productsCategory, setProductsCategory] = useState<Product[]>([]);
+  const [productsCategory, setProductsCategory] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState({
     loadingCategories: false,
     loadingProducts: false,
@@ -18,7 +22,19 @@ export const useApi = () => {
     if (path === "/") {
       getAllCategories();
     }
-  }, []);
+    if (path === "/products/laptops") {
+      getAllLaptops();
+    }
+    if (path === "/products/smartphones") {
+      getAllSmartphones();
+    }
+    if (path === "/products/mens-watches") {
+      getAllMensWatches();
+    }
+    if (path === "/products/womens-watches") {
+      getAllWomensWatches();
+    }
+  }, [path]);
 
   const getAllCategories = async () => {
     try {
@@ -60,17 +76,66 @@ export const useApi = () => {
       return "https://i.dummyjson.com/data/products/4/2.jpg";
   };
 
-  const getAllProductsCategory = async (product: string) => {
+  const getAllLaptops = async () => {
     try {
       setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
-      const data = await api.get(`products/category/${product}`);
-      return data;
+      const data = await api.get(`products/category/laptops`);
+      setLaptops(data.products);
     } catch (e) {
       console.log(e);
+      throw new Error("Erro ao buscar produtos.");
     } finally {
       setIsLoading((prev) => ({ ...prev, loadingCategories: false }));
     }
   };
 
-  return { categories, getAllProductsCategory, getImageForCategory };
+  const getAllSmartphones = async () => {
+    try {
+      setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
+      const data = await api.get(`products/category/smartphones`);
+      setSmartphones(data.products);
+    } catch (e) {
+      console.log(e);
+      throw new Error("Erro ao buscar produtos.");
+    } finally {
+      setIsLoading((prev) => ({ ...prev, loadingCategories: false }));
+    }
+  };
+
+  const getAllMensWatches = async () => {
+    try {
+      setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
+      const data = await api.get(`products/category/mens-watches`);
+      setMensWatches(data.products);
+    } catch (e) {
+      console.log(e);
+      throw new Error("Erro ao buscar produtos.");
+    } finally {
+      setIsLoading((prev) => ({ ...prev, loadingCategories: false }));
+    }
+  };
+
+  const getAllWomensWatches = async () => {
+    try {
+      setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
+      const data = await api.get(`products/category/womens-watches`);
+      setWomensWatches(data.products);
+    } catch (e) {
+      console.log(e);
+      throw new Error("Erro ao buscar produtos.");
+    } finally {
+      setIsLoading((prev) => ({ ...prev, loadingCategories: false }));
+    }
+  };
+
+  return {
+    categories,
+    getAllLaptops,
+    getImageForCategory,
+    isLoading,
+    laptops,
+    smartphones,
+    mensWatches,
+    womensWatches,
+  };
 };

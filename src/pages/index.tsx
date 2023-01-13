@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Category from "../components/Category";
 import { useApi } from "../hooks/useApi";
-import { Product } from "../interfaces/product";
 
 export default function Home() {
   const { categories, getImageForCategory } = useApi();
@@ -21,9 +20,9 @@ export default function Home() {
           />
           <div className="absolute left-12">
             <h1 className="mb-6 font-mono text-xl font-bold text-gray-700">
-              New Session: Developer Stuff
+              New Season: Developer Stuff
             </h1>
-            <h2 className="font-mono text-xl font-bold text-gray-700">
+            <h2 className="font-mono text-2xl font-bold text-gray-700">
               Technologies and Accessories
             </h2>
           </div>
@@ -36,6 +35,7 @@ export default function Home() {
                 key={category.id}
               >
                 <Category
+                  href={`/products/${category}`}
                   imageUrl={getImageForCategory(category) as string}
                   categoryName={category.toString()}
                 ></Category>
