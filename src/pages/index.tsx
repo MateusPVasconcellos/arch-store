@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Category from "../components/Category";
 import { useApi } from "../hooks/useApi";
+import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 import { getCategoryName } from "../utils/getCategoryName";
 
 export default function Home() {
@@ -18,29 +19,29 @@ export default function Home() {
             quality={100}
             className="w-full"
           />
-          <div className="absolute left-12">
-            <h1 className="mb-6 font-mono text-5xl font-bold text-gray-700">
+          <div className="absolute left-2 md:left-12">
+            <h1 className="font-mono text-lg font-bold text-gray-700 md:mb-6 md:text-5xl">
               ArcH Store
             </h1>
-            <h1 className="mb-6 font-mono text-xl font-bold text-gray-700">
+            <h1 className="mt-1 mb-2 w-40 break-words font-mono text-base font-bold text-gray-700 md:mb-6 md:w-full md:text-xl">
               New Season: Developer Stuff
             </h1>
-            <h2 className="font-mono text-2xl font-bold text-gray-700">
+            <h2 className="w-40 break-words font-mono text-sm font-bold text-gray-700 md:w-full md:text-2xl">
               Technologies and Accessories
             </h2>
           </div>
         </div>
-        <div className="flex">
+        <div className="ml-2 flex justify-evenly  md:ml-0">
           {categories.length &&
             categories.map((category) => (
               <div
-                className="flex h-96 w-11/12 justify-evenly pt-10"
+                className="flex w-2/12 justify-evenly pt-10 md:flex md:h-96 md:w-11/12"
                 key={category.id}
               >
                 <Category
                   href={`/products/${getCategoryName(category)}`}
                   imageUrl={getImageForCategory(category) as string}
-                  categoryName={category.toString()}
+                  categoryName={capitalizeFirstLetter(category.toString())}
                 ></Category>
               </div>
             ))}

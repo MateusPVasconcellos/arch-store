@@ -19,5 +19,13 @@ body {
 body::after {
   content: "";
   display: block;
-  height: 50px;
+  height: 225px;
+}
+
+@media (min-width: 768px) {
+  body::after {
+    content: "";
+    display: block;
+    height: 50px;
+  }
 }

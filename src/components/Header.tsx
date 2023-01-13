@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <header className="flex h-10 w-full bg-slate-800/50">
-      <div className="flex">
+      <div className="ml-4 flex">
         <button onClick={() => setTheme("dark")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,11 +43,11 @@ function Header() {
       </div>
       <nav className="flex h-full w-full items-center">
         <div
-          className="ml-10 flex h-full w-20 items-center
-       justify-center rounded-3xl bg-slate-200/10 font-bold hover:bg-slate-300 dark:bg-slate-500/10"
+          className="ml-10 flex h-full w-14 items-center justify-center
+       rounded-3xl bg-slate-200/10 font-bold hover:bg-slate-300 dark:bg-slate-500/10 md:w-20"
         >
           <Link
-            className="flex h-full w-full items-center justify-center text-white"
+            className="flex h-full w-full items-center justify-center text-xs text-white md:text-lg"
             href={"/"}
           >
             Home
