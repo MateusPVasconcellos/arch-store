@@ -17,7 +17,7 @@ function Product({ imageUrl, productName, price, description }: ProductProps) {
         <div className="block h-20 justify-end">
           <h1 className="ml-2 text-gray-800 dark:text-white">{productName}</h1>
           <h2 className="ml-2 mt-2 font-bold text-green-600 dark:text-green-300">
-            R$ {price}
+            US$ {price}
           </h2>
         </div>
         <h3 className="mt-6 text-gray-800 dark:text-white">{description}</h3>
