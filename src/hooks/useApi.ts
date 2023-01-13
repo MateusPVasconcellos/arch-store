@@ -35,14 +35,29 @@ export const useApi = () => {
         return filters.includes(el.toString());
       });
 
-      if (formatedData) {
-        setCategories(formatedData);
+      const finalData = formatedData.map((el: string) => {
+        return el.replace("-", " ");
+      });
+
+      if (finalData) {
+        setCategories(finalData);
       }
     } catch (e) {
       console.log(e);
     } finally {
       setIsLoading((prev) => ({ ...prev, loadingCategories: false }));
     }
+  };
+
+  const getImage = (category: string) => {
+    if (category === "mens watches")
+      return "https://i.dummyjson.com/data/products/61/thumbnail.jpg";
+    if (category === "womens watches")
+      return "https://i.dummyjson.com/data/products/68/thumbnail.webp";
+    if (category === "laptops")
+      return "https://i.dummyjson.com/data/products/10/2.jpg";
+    if (category === "smartphones")
+      return "https://i.dummyjson.com/data/products/4/2.jpg";
   };
 
   const getAllProductsCategory = async (product: string) => {
@@ -57,5 +72,5 @@ export const useApi = () => {
     }
   };
 
-  return { categories, getAllProductsCategory };
+  return { categories, getAllProductsCategory, getImage };
 };

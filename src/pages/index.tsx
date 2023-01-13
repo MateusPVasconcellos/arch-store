@@ -5,7 +5,7 @@ import { useApi } from "../hooks/useApi";
 import { Product } from "../interfaces/product";
 
 export default function Home() {
-  const { categories, getAllProductsCategory } = useApi();
+  const { categories, getImage } = useApi();
 
   return (
     <div className="mx-auto inline-block w-full justify-center text-base">
@@ -36,7 +36,7 @@ export default function Home() {
                 key={category.id}
               >
                 <Category
-                  imageUrl=""
+                  imageUrl={getImage(category) as string}
                   categoryName={category.toString()}
                 ></Category>
               </div>
