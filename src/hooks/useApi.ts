@@ -49,7 +49,7 @@ export const useApi = () => {
     }
   };
 
-  const getImage = (category: string) => {
+  const getImageForCategory = (category: string) => {
     if (category === "mens watches")
       return "https://i.dummyjson.com/data/products/61/thumbnail.jpg";
     if (category === "womens watches")
@@ -72,5 +72,5 @@ export const useApi = () => {
     }
   };
 
-  return { categories, getAllProductsCategory, getImage };
+  return { categories, getAllProductsCategory, getImageForCategory };
 };

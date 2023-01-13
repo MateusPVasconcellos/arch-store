@@ -9,7 +9,7 @@ interface CategoryProps {
 
 function Category({ imageUrl, categoryName }: CategoryProps) {
   return (
-    <Link href={"/"} className="block h-fit border p-3 hover:bg-blue-400">
+    <Link href={"/"} className="block h-fit border p-3 hover:bg-gray-800">
       <div className="relative flex h-48 w-40">
         <Image src={imageUrl} alt="categorys" fill quality={100}></Image>
       </div>
