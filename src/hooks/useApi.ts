@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useRouter } from "next/router";
-import { ImagesEnum } from "../enums/images";
 import { IProduct } from "../interfaces/IProduct";
 
 export const useApi = () => {
@@ -12,7 +11,6 @@ export const useApi = () => {
   const [womensWatches, setWomensWatches] = useState<IProduct[]>([]);
   const router = useRouter();
   const path = router.pathname;
-  const [productsCategory, setProductsCategory] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState({
     loadingCategories: false,
     loadingProducts: false,

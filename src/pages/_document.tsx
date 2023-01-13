@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 export default function Document() {
   return (
-    <Html className="h-screen w-screen">
+    <Html>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -17,8 +17,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="bg-app block bg-gray-900 bg-cover bg-no-repeat">
-        <Header />
+      <body className="bg-app block bg-gray-200 bg-cover bg-no-repeat dark:bg-gray-700">
         <Main />
         <NextScript />
         <Footer />

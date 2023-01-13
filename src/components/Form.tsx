@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
-import { useSearch } from "../hooks/useSearch";
 import { formSchema } from "../schemas/FormSchema";
 
 function Form() {

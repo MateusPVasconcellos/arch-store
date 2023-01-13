@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Category from "../components/Category";
 import { useApi } from "../hooks/useApi";
+import { getCategoryName } from "../utils/getCategoryName";
 
 export default function Home() {
   const { categories, getImageForCategory } = useApi();
@@ -9,16 +9,19 @@ export default function Home() {
   return (
     <div className="mx-auto inline-block w-full justify-center text-base">
       <main>
-        <div className="flex items-center justify-center pt-10">
+        <div className="flex items-center justify-center">
           <Image
             src="https://themewagon.github.io/cozastore/images/slide-02.jpg"
             alt="ArcH-Store Home"
-            width={2000}
+            width={1000}
             height={1}
             quality={100}
             className="w-full"
           />
           <div className="absolute left-12">
+            <h1 className="mb-6 font-mono text-5xl font-bold text-gray-700">
+              ArcH Store
+            </h1>
             <h1 className="mb-6 font-mono text-xl font-bold text-gray-700">
               New Season: Developer Stuff
             </h1>
@@ -35,7 +38,7 @@ export default function Home() {
                 key={category.id}
               >
                 <Category
-                  href={`/products/${category}`}
+                  href={`/products/${getCategoryName(category)}`}
                   imageUrl={getImageForCategory(category) as string}
                   categoryName={category.toString()}
                 ></Category>
