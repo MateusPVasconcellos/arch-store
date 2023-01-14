@@ -5,27 +5,29 @@ interface CartItemProps {
   imageUrl: string;
   productName: string;
   price: number;
+  quantity: number;
 }
 
-function CartItem({ imageUrl, productName, price }: CartItemProps) {
+function CartItem({ imageUrl, productName, price, quantity }: CartItemProps) {
   return (
     <div
-      className="mt-10 flex max-h-72 rounded bg-gray-300 hover:bg-gray-400
-     dark:bg-gray-600 dark:hover:bg-gray-800 md:ml-12"
+      className="mt-4 ml-3 flex h-24 w-44 rounded bg-gray-300 hover:bg-gray-400 dark:bg-gray-600
+     dark:hover:bg-gray-800 md:ml-6 md:h-36 md:w-56"
     >
-      <section className="m-4 block max-h-64 w-44 justify-center">
-        <div className="relative m-2 block h-32 w-40 md:h-40">
-          <Image src={imageUrl} alt="products" fill quality={100} />
-        </div>
-        <div className="block h-10 justify-end md:h-20">
-          <h1 className="ml-2 text-xs text-gray-800 dark:text-white md:text-base">
-            {productName}
-          </h1>
-          <h2 className="ml-2 text-sm font-bold text-green-600 dark:text-green-300 md:mt-2 md:text-base">
-            US$ {price}
-          </h2>
-        </div>
-      </section>
+      <div className="md:h-38 relative m-2 block h-16 w-20">
+        <Image src={imageUrl} alt="products" quality={100} fill />
+      </div>
+      <div className="block h-10 justify-end md:h-20">
+        <h1 className="ml-2 mr-1 mt-1 text-xs text-gray-800 dark:text-white md:text-[14px]">
+          {productName}
+        </h1>
+        <h2 className="ml-2 text-xs font-bold text-green-600 dark:text-green-300 md:mt-2">
+          US$ {price}
+        </h2>
+        <h3 className="ml-2 text-xs text-gray-800 dark:text-white md:mt-2 md:text-[14px]">
+          quantity: {quantity}
+        </h3>
+      </div>
     </div>
   );
 }

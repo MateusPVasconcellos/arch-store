@@ -10,8 +10,8 @@ export default function WomensWatches() {
     womensWatches && (
       <div className="mx-auto w-full justify-center text-base">
         <HeaderProducts />
-        <main className="flex min-h-screen w-full justify-center">
-          <ul className="inline-block md:flex">
+        <main className="flex min-h-screen justify-center md:w-full">
+          <ul className="inline md:flex md:w-full md:justify-evenly">
             {womensWatches.map((womensWatch) => (
               <li>
                 <Product

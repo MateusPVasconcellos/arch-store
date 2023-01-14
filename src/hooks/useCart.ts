@@ -9,8 +9,12 @@ interface ICartItem {
 
 export const useCart = () => {
   const [cartItems, setCartItems] = useLocalStorage("shopping-cart", []);
-  const [detailCartItems, setDetailCartItems] = useState<any>([]);
+  const [itemsDetails, setItemsDetails] = useState<any>([]);
   const [isLoadingCart, setIsLoadingCart] = useState<boolean>(false);
+
+  useEffect(() => {
+    getCartItemsDetails(cartItems);
+  }, [cartItems]);
 
   function increaseItem(id: number) {
     setCartItems((currentItems: any) => {
@@ -30,7 +34,7 @@ export const useCart = () => {
   }
 
   function decreaseItem(itemId: number) {
-    setCartItems((currentItems: any[]) => {
+    setCartItems((currentItems: any) => {
       if (
         currentItems.find((item: any) => item.id === itemId)?.quantity === 1
       ) {
@@ -47,13 +51,19 @@ export const useCart = () => {
     });
   }
 
-  const getCartItemsDetails = async (itensId: number[]): Promise<void> => {
+  const getCartItemsDetails = async (itens: any[]) => {
     try {
       setIsLoadingCart(true);
-      itensId.forEach(async (el) => {
-        let item = await api.get(`products/${el}`);
-        setDetailCartItems((prev: any) => [...prev, item]);
-      });
+      const data = await Promise.all(
+        itens.map(async (item) => {
+          const response = await api.get(
+            `products/${item.id}?&select=price,title,thumbnail`
+          );
+          return { ...response, quantity: item.quantity };
+        })
+      );
+      console.log(data);
+      setItemsDetails(data);
     } catch (e) {
       console.log(e);
     } finally {
@@ -64,7 +74,7 @@ export const useCart = () => {
   return {
     decreaseItem,
     increaseItem,
-    detailCartItems,
+    itemsDetails,
     cartItems,
   };
 };
