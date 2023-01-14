@@ -13,15 +13,19 @@ export default function Smartphones() {
       <div className="mx-auto w-full justify-center text-base">
         <HeaderProducts />
         <main className="flex min-h-screen w-full">
-          {smartphones.map((smartphone) => (
-            <Product
-              price={smartphone.price}
-              imageUrl={smartphone.thumbnail}
-              productName={smartphone.title}
-              description={smartphone.description}
-              key={smartphone.id}
-            />
-          ))}
+          <ul className="inline md:flex">
+            {smartphones.map((smartphone) => (
+              <li>
+                <Product
+                  price={smartphone.price}
+                  imageUrl={smartphone.thumbnail}
+                  productName={smartphone.title}
+                  description={smartphone.description}
+                  key={smartphone.id}
+                />
+              </li>
+            ))}
+          </ul>
         </main>
       </div>
     )

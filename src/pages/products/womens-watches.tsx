@@ -13,15 +13,19 @@ export default function WomensWatches() {
       <div className="mx-auto w-full justify-center text-base">
         <HeaderProducts />
         <main className="flex min-h-screen w-full">
-          {womensWatches.map((womensWatch) => (
-            <Product
-              price={womensWatch.price}
-              imageUrl={womensWatch.thumbnail}
-              productName={womensWatch.title}
-              description={womensWatch.description}
-              key={womensWatch.id}
-            />
-          ))}
+          <ul className="inline md:flex">
+            {womensWatches.map((womensWatch) => (
+              <li>
+                <Product
+                  price={womensWatch.price}
+                  imageUrl={womensWatch.thumbnail}
+                  productName={womensWatch.title}
+                  description={womensWatch.description}
+                  key={womensWatch.id}
+                />
+              </li>
+            ))}
+          </ul>
         </main>
       </div>
     )

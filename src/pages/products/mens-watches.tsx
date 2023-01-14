@@ -13,15 +13,19 @@ export default function MansWatches() {
       <div className="mx-auto w-full justify-center text-base">
         <HeaderProducts />
         <main className="flex min-h-screen w-full">
-          {mensWatches.map((mensWatch) => (
-            <Product
-              price={mensWatch.price}
-              imageUrl={mensWatch.thumbnail}
-              productName={mensWatch.title}
-              description={mensWatch.description}
-              key={mensWatch.id}
-            />
-          ))}
+          <ul className="inline md:flex">
+            {mensWatches.map((mensWatch) => (
+              <li>
+                <Product
+                  price={mensWatch.price}
+                  imageUrl={mensWatch.thumbnail}
+                  productName={mensWatch.title}
+                  description={mensWatch.description}
+                  key={mensWatch.id}
+                />
+              </li>
+            ))}
+          </ul>
         </main>
       </div>
     )

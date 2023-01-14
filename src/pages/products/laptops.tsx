@@ -13,15 +13,19 @@ export default function Laptops() {
       <div className="mx-auto w-full justify-center text-base">
         <HeaderProducts />
         <main className="flex min-h-screen w-full">
-          {laptops.map((laptop) => (
-            <Product
-              price={laptop.price}
-              imageUrl={laptop.thumbnail}
-              productName={laptop.title}
-              description={laptop.description}
-              key={laptop.id}
-            />
-          ))}
+          <ul className="inline md:flex">
+            {laptops.map((laptop) => (
+              <li>
+                <Product
+                  price={laptop.price}
+                  imageUrl={laptop.thumbnail}
+                  productName={laptop.title}
+                  description={laptop.description}
+                  key={laptop.id}
+                />
+              </li>
+            ))}
+          </ul>
         </main>
       </div>
     )
