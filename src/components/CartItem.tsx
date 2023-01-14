@@ -1,27 +1,19 @@
+import React from "react";
 import Image from "next/image";
-import { useCart } from "../hooks/useCart";
 
-interface ProductProps {
+interface CartItemProps {
   imageUrl: string;
   productName: string;
   price: number;
-  description: string;
-  id: number;
 }
 
-function Product({
-  imageUrl,
-  productName,
-  price,
-  description,
-  id,
-}: ProductProps) {
+function CartItem({ imageUrl, productName, price }: CartItemProps) {
   return (
     <div
       className="mt-10 flex max-h-72 rounded bg-gray-300 hover:bg-gray-400
-     dark:bg-gray-600 dark:hover:bg-gray-800 md:ml-1 lg:ml-6"
+     dark:bg-gray-600 dark:hover:bg-gray-800 md:ml-12"
     >
-      <section className="m-2 block max-h-64 w-44 justify-center">
+      <section className="m-4 block max-h-64 w-44 justify-center">
         <div className="relative m-2 block h-32 w-40 md:h-40">
           <Image src={imageUrl} alt="products" fill quality={100} />
         </div>
@@ -33,12 +25,9 @@ function Product({
             US$ {price}
           </h2>
         </div>
-        <h3 className="mt-2 text-xs text-gray-800 dark:text-white md:mt-6 md:text-base">
-          {description}
-        </h3>
       </section>
     </div>
   );
 }
 
-export default Product;
+export default CartItem;

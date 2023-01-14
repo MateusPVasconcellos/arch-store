@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import AddItemButton from "../../components/AddItemButton";
 import HeaderProducts from "../../components/HeaderProducts";
 import Product from "../../components/Product";
 import { useApi } from "../../hooks/useApi";
@@ -22,7 +23,9 @@ export default function Laptops() {
                   productName={laptop.title}
                   description={laptop.description}
                   key={laptop.id}
+                  id={laptop.id}
                 />
+                <AddItemButton id={laptop.id} />
               </li>
             ))}
           </ul>

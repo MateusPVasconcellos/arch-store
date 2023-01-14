@@ -39,6 +39,7 @@ export default function Home() {
                   href={`/products/${getCategoryName(category)}`}
                   imageUrl={getImageForCategory(category) as string}
                   categoryName={capitalizeFirstLetter(category.toString())}
+                  key={category}
                 ></Category>
               </li>
             ))}

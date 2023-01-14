@@ -77,7 +77,7 @@ export const useApi = () => {
   const getAllLaptops = async () => {
     try {
       setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
-      const data = await api.get(`products/category/laptops`);
+      const data = await api.get(`products/category/laptops?limit=4`);
       setLaptops(data.products);
     } catch (e) {
       console.log(e);
@@ -90,7 +90,7 @@ export const useApi = () => {
   const getAllSmartphones = async () => {
     try {
       setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
-      const data = await api.get(`products/category/smartphones`);
+      const data = await api.get(`products/category/smartphones?limit=4`);
       setSmartphones(data.products);
     } catch (e) {
       console.log(e);
@@ -103,7 +103,7 @@ export const useApi = () => {
   const getAllMensWatches = async () => {
     try {
       setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
-      const data = await api.get(`products/category/mens-watches`);
+      const data = await api.get(`products/category/mens-watches?limit=4`);
       setMensWatches(data.products);
     } catch (e) {
       console.log(e);
@@ -116,7 +116,7 @@ export const useApi = () => {
   const getAllWomensWatches = async () => {
     try {
       setIsLoading((prev) => ({ ...prev, loadingCategories: true }));
-      const data = await api.get(`products/category/womens-watches`);
+      const data = await api.get(`products/category/womens-watches?limit=4`);
       setWomensWatches(data.products);
     } catch (e) {
       console.log(e);

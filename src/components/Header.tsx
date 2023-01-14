@@ -10,13 +10,8 @@ function Header() {
     modal?.classList.remove("hidden");
   };
 
-  const closeCart = () => {
-    const modal = document.querySelector(".modal");
-    modal?.classList.add("hidden");
-  };
-
   return (
-    <header className="flex h-10 w-full bg-slate-800/50">
+    <header className="z-10 flex h-10 w-full bg-slate-800/50">
       <nav className="flex h-full w-full items-center justify-between">
         <div className="ml-4 flex">
           <button onClick={() => setTheme("dark")}>
@@ -24,7 +19,7 @@ function Header() {
               xmlns="http://www.w3.org/2000/svg"
               fill={theme === "dark" ? "yellow" : "none"}
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="h-6 w-6"
             >
@@ -40,7 +35,7 @@ function Header() {
               xmlns="http://www.w3.org/2000/svg"
               fill={theme === "light" ? "yellow" : "none"}
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="h-6 w-6"
             >
@@ -63,12 +58,12 @@ function Header() {
             Home
           </Link>
         </div>
-        <button className="show-modal z-10 mr-10" onClick={openCart}>
+        <button className="show-modal mr-10" onClick={openCart}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="h-6 w-6"
           >
@@ -79,28 +74,6 @@ function Header() {
             />
           </svg>
         </button>
-
-        <div
-          className="modal fixed right-0 z-20 hidden h-[1000px] w-72 border
-         border-gray-700 bg-gray-200 dark:bg-gray-400"
-        >
-          <button className="close-modal fixed top-0 z-50" onClick={closeCart}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="ml-1 mt-1 h-6 w-6 rounded-full bg-red-400"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </button>
-        </div>
       </nav>
     </header>
   );

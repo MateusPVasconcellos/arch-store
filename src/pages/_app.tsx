@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "next-themes";
 import Header from "../components/Header";
+import CartModal from "../components/CartModal";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <ThemeProvider attribute="class">
         <Header />
+        <CartModal />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

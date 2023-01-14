@@ -6,7 +6,7 @@ function HeaderProducts() {
       <nav className="flex h-full w-full items-center">
         <Link
           className="flex h-full w-11/12 
-           items-center justify-center text-xs text-gray-800 dark:text-white md:text-base"
+           items-center justify-center whitespace-nowrap text-xs text-gray-800 dark:text-white md:text-base"
           href={"/products/mens-watches"}
         >
           Mens Watches

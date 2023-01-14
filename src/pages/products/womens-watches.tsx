@@ -1,9 +1,7 @@
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import AddItemButton from "../../components/AddItemButton";
 import HeaderProducts from "../../components/HeaderProducts";
 import Product from "../../components/Product";
 import { useApi } from "../../hooks/useApi";
-import { IProduct } from "../../interfaces/IProduct";
 
 export default function WomensWatches() {
   const { womensWatches } = useApi();
@@ -13,7 +11,7 @@ export default function WomensWatches() {
       <div className="mx-auto w-full justify-center text-base">
         <HeaderProducts />
         <main className="flex min-h-screen w-full justify-center">
-          <ul className="inline md:flex">
+          <ul className="inline-block md:flex">
             {womensWatches.map((womensWatch) => (
               <li>
                 <Product
@@ -22,7 +20,9 @@ export default function WomensWatches() {
                   productName={womensWatch.title}
                   description={womensWatch.description}
                   key={womensWatch.id}
+                  id={womensWatch.id}
                 />
+                <AddItemButton id={womensWatch.id} />
               </li>
             ))}
           </ul>

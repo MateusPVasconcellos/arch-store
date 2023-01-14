@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import AddItemButton from "../../components/AddItemButton";
 import HeaderProducts from "../../components/HeaderProducts";
 import Product from "../../components/Product";
 import { useApi } from "../../hooks/useApi";
@@ -22,7 +23,9 @@ export default function MansWatches() {
                   productName={mensWatch.title}
                   description={mensWatch.description}
                   key={mensWatch.id}
+                  id={mensWatch.id}
                 />
+                <AddItemButton id={mensWatch.id} />
               </li>
             ))}
           </ul>
