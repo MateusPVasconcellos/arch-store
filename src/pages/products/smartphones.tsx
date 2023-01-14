@@ -12,7 +12,7 @@ export default function Smartphones() {
     smartphones && (
       <div className="mx-auto w-full justify-center text-base">
         <HeaderProducts />
-        <main className="flex min-h-screen w-full">
+        <main className="flex min-h-screen w-full justify-center">
           <ul className="inline md:flex">
             {smartphones.map((smartphone) => (
               <li>
