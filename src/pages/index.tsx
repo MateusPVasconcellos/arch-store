@@ -31,21 +31,18 @@ export default function Home() {
             </h2>
           </div>
         </div>
-        <div className="ml-2 flex justify-evenly  md:ml-0">
+        <ul className="flex justify-evenly md:ml-0">
           {categories.length &&
             categories.map((category) => (
-              <div
-                className="flex w-2/12 justify-evenly pt-10 md:flex md:h-96 md:w-11/12"
-                key={category.id}
-              >
+              <li className="flex w-16 justify-evenly pt-10 md:flex md:h-96 md:w-11/12">
                 <Category
                   href={`/products/${getCategoryName(category)}`}
                   imageUrl={getImageForCategory(category) as string}
                   categoryName={capitalizeFirstLetter(category.toString())}
                 ></Category>
-              </div>
+              </li>
             ))}
-        </div>
+        </ul>
       </main>
     </div>
   );
