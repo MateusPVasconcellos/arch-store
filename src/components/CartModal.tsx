@@ -1,4 +1,8 @@
+import { useCart } from "../hooks/useCart";
+import CartItem from "./CartItem";
+
 function CartModal({}) {
+  const { cartItems } = useCart();
   const closeCart = () => {
     const modal = document.querySelector(".modal");
     modal?.classList.add("hidden");
@@ -28,6 +32,15 @@ function CartModal({}) {
         </button>
         <div className="ml-6 mt-2 font-bold">
           <h1>YOUR CART</h1>
+        </div>
+        <div className="h-full">
+          <ul>
+            {cartItems.map((item: any) => (
+              <li>
+                <CartItem imageUrl={""} productName={""} price={0} />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

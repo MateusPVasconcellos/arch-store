@@ -1,27 +1,32 @@
-// src/useLocalStorage.js, final code
+import React, { useDebugValue, useEffect, useState } from "react";
 
-import { useState, useEffect } from "react";
-
-const useLocalStorage = (key: any, defaultValue: any) => {
-  const [value, setValue] = useState(() => {
-    let currentValue;
-
-    try {
-      currentValue = JSON.parse(
-        localStorage.getItem(key) || String(defaultValue)
-      );
-    } catch (error) {
-      currentValue = defaultValue;
-    }
-
-    return currentValue;
-  });
+const useLocalStorage = <S>(
+  key: string,
+  initialState?: S | (() => S)
+): [S, React.Dispatch<React.SetStateAction<S>>] => {
+  const [state, setState] = useState<S>(initialState as S);
+  useDebugValue(state);
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [value, key]);
+    const item = localStorage.getItem(key);
+    if (item) setState(parse(item));
+  }, []);
 
-  return [value, setValue];
+  useEffect(() => {
+    if (state !== initialState) {
+      localStorage.setItem(key, JSON.stringify(state));
+    }
+  }, [state]);
+
+  return [state, setState];
+};
+
+const parse = (value: string) => {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return value;
+  }
 };
 
 export default useLocalStorage;
