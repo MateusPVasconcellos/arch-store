@@ -2,8 +2,9 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import React from "react";
 import { useCart } from "../hooks/useCart";
+import { openModalAddItem } from "./AddItemModal";
 
-function Header() {
+function Header(): JSX.Element {
   const { theme, setTheme } = useTheme();
   const { openCart } = useCart();
 
@@ -60,6 +61,13 @@ function Header() {
             Home
           </Link>
         </div>
+        <button
+          className="show-modal mr-12"
+          onClick={openModalAddItem}
+          title="Your Cart"
+        >
+          oi
+        </button>
         <button
           className="show-modal mr-12"
           onClick={openCart}

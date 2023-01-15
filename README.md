@@ -9,7 +9,7 @@ Baixe ou clone o projeto para sua maquina.
 
 `git clone https://github.com/MateusPVasconcellos/arch-store.git`
 
-Projeto desenvolvido em OS Linux Ubuntu 20.4.
+Projeto desenvolvido em OS Linux Ubuntu.
 
 🚀 Insira na raiz do projeto para instalar dependências:
 

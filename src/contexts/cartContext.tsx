@@ -19,7 +19,9 @@ interface CartContextProviderProps {
 
 const CartContext = createContext({} as CartContextProps);
 
-export function CartContextProvider({ children }: CartContextProviderProps) {
+export function CartContextProvider({
+  children,
+}: CartContextProviderProps): JSX.Element {
   const [cartItems, setCartItems] = useLocalStorage("shopping-cart", []);
   const [itemsDetails, setItemsDetails] = useState<any>([]);
   const [isLoadingCart, setIsLoadingCart] = useState<boolean>(false);

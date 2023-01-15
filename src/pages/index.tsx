@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Category from "../components/Category";
+import Spinner from "../components/Spinner";
 import { useApi } from "../hooks/useApi";
 import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 import { getCategoryName } from "../utils/getCategoryName";
 
-export default function Home() {
-  const { categories, getImageForCategory } = useApi();
+export default function Home(): JSX.Element {
+  const { categories, getImageForCategory, isLoadingCategories } = useApi();
 
   return (
     <div className="mx-auto inline-block w-full justify-center text-base">
@@ -32,7 +33,9 @@ export default function Home() {
           </div>
         </div>
         <ul className="flex justify-evenly md:ml-0">
-          {categories.length &&
+          {isLoadingCategories ? (
+            <Spinner />
+          ) : (
             categories.map((category) => (
               <li className="flex w-16 justify-evenly pt-10 md:flex md:h-96 md:w-11/12">
                 <Category
@@ -42,7 +45,8 @@ export default function Home() {
                   key={category}
                 ></Category>
               </li>
-            ))}
+            ))
+          )}
         </ul>
       </main>
     </div>

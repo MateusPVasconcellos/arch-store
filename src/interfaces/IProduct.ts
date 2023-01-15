@@ -1,3 +1,10 @@
+export interface IProducts {
+  products: IProduct[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
 export interface IProduct {
   id: number;
   title: string;

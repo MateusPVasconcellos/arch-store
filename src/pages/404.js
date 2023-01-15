@@ -4,11 +4,11 @@ import React from "react";
 function Custom404() {
   return (
     <div className="block h-40 items-center">
-      <div className="flex items-center justify-center text-xl">
-        Desculpe, pagina não encontrada.
+      <div className="mt-10 flex items-center justify-center text-xl">
+        Sorry, page not found.
       </div>
       <div className="mt-10 flex items-center justify-center text-xl">
-        <Link href="/">Voltar para Home</Link>
+        <Link href="/">Go back to Home</Link>
       </div>
     </div>
   );

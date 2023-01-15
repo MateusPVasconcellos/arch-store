@@ -3,7 +3,9 @@ import { errorInterceptor } from "./ErrorInterceptor";
 import { responseInterceptor } from "./ResponseInterceptor";
 
 const AxiosClient = axios.create({
-  baseURL: process.env.API_URL,
+  headers: {
+    "Content-type": "application/json",
+  },
 });
 
 AxiosClient.interceptors.response.use(

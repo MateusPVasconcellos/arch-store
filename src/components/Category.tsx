@@ -8,7 +8,11 @@ interface CategoryProps {
   href: string;
 }
 
-function Category({ imageUrl, categoryName, href }: CategoryProps) {
+function Category({
+  imageUrl,
+  categoryName,
+  href,
+}: CategoryProps): JSX.Element {
   return (
     <Link
       href={href}

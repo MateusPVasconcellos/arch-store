@@ -15,7 +15,7 @@ function Product({
   price,
   description,
   id,
-}: ProductProps) {
+}: ProductProps): JSX.Element {
   return (
     <div
       className="mt-10 flex max-h-72 rounded bg-gray-300 hover:bg-gray-400

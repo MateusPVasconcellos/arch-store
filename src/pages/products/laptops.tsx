@@ -1,13 +1,11 @@
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import AddItemButton from "../../components/AddItemButton";
 import HeaderProducts from "../../components/HeaderProducts";
 import Product from "../../components/Product";
+import Spinner from "../../components/Spinner";
 import { useApi } from "../../hooks/useApi";
-import { IProduct } from "../../interfaces/IProduct";
 
-export default function Laptops() {
-  const { laptops } = useApi();
+export default function Laptops(): JSX.Element | undefined {
+  const { laptops, isLoadingLaptops } = useApi();
 
   return (
     laptops && (
@@ -15,19 +13,23 @@ export default function Laptops() {
         <HeaderProducts />
         <main className="flex min-h-screen justify-center md:w-full">
           <ul className="inline md:flex md:w-full md:justify-evenly">
-            {laptops.map((laptop) => (
-              <li>
-                <Product
-                  price={laptop.price}
-                  imageUrl={laptop.thumbnail}
-                  productName={laptop.title}
-                  description={laptop.description}
-                  key={laptop.id}
-                  id={laptop.id}
-                />
-                <AddItemButton id={laptop.id} />
-              </li>
-            ))}
+            {isLoadingLaptops ? (
+              <Spinner />
+            ) : (
+              laptops?.map((laptop) => (
+                <li>
+                  <Product
+                    price={laptop.price}
+                    imageUrl={laptop.thumbnail}
+                    productName={laptop.title}
+                    description={laptop.description}
+                    key={laptop.id}
+                    id={laptop.id}
+                  />
+                  <AddItemButton id={laptop.id} />
+                </li>
+              ))
+            )}
           </ul>
         </main>
       </div>

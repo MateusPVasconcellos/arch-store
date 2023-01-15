@@ -4,7 +4,7 @@ interface AddItemButtonProps {
   id: number;
 }
 
-function AddItemButton({ id }: AddItemButtonProps) {
+function AddItemButton({ id }: AddItemButtonProps): JSX.Element {
   const { addOneMoreItem } = useCart();
   return (
     <button

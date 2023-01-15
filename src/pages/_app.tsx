@@ -5,8 +5,9 @@ import { ThemeProvider } from "next-themes";
 import Header from "../components/Header";
 import CartModal from "../components/CartModal";
 import { CartContextProvider } from "../contexts/cartContext";
+import AddItemModal from "../components/AddItemModal";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <CartContextProvider>
         <ThemeProvider attribute="class">
           <Header />
+          <AddItemModal />
           <CartModal />
           <Component {...pageProps} />
         </ThemeProvider>

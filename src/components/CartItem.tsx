@@ -16,7 +16,7 @@ function CartItem({
   price,
   quantity,
   id,
-}: CartItemProps) {
+}: CartItemProps): JSX.Element {
   const { decreaseOneItem } = useCart();
   return (
     <div

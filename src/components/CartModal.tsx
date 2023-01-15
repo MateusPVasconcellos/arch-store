@@ -1,7 +1,7 @@
 import { useCart } from "../hooks/useCart";
 import CartItem from "./CartItem";
 
-function CartModal({}) {
+function CartModal(): JSX.Element {
   const { closeCart, itemsDetails, clearAll } = useCart();
 
   return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-function HeaderProducts() {
+function HeaderProducts(): JSX.Element {
   return (
     <header className="h-8 w-full bg-transparent md:mt-10 md:h-14">
       <nav className="flex h-full w-full items-center">
