@@ -3,13 +3,13 @@ Desafio - Front End - Janeiro/2023 🚀🚀
 
 🚀 Não faz uso de bibliotecas de componentes, apenas css, html e typescript 🤠 🤠
 
+🚀 Projeto desenvolvido em OS Linux Ubuntu.
+
 <h2>🚀  Começando</h2>
 
 Baixe ou clone o projeto para sua maquina.
 
 `git clone https://github.com/MateusPVasconcellos/arch-store.git`
-
-Projeto desenvolvido em OS Linux Ubuntu.
 
 🚀 Insira na raiz do projeto para instalar dependências:
 
