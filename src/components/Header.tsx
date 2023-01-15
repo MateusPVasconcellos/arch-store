@@ -1,20 +1,17 @@
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React from "react";
+import { useCart } from "../hooks/useCart";
 
 function Header() {
   const { theme, setTheme } = useTheme();
-
-  const openCart = () => {
-    const modal = document.querySelector(".modal");
-    modal?.classList.remove("hidden");
-  };
+  const { openCart } = useCart();
 
   return (
     <header className="z-10 flex h-10 w-full bg-slate-800/50">
       <nav className="flex h-full w-full items-center justify-between">
         <div className="ml-4 flex">
-          <button onClick={() => setTheme("dark")}>
+          <button onClick={() => setTheme("dark")} title="Dark Theme">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill={theme === "dark" ? "yellow" : "none"}
@@ -30,7 +27,11 @@ function Header() {
               />
             </svg>
           </button>
-          <button onClick={() => setTheme("light")}>
+          <button
+            onClick={() => setTheme("light")}
+            title="Light Theme"
+            className="ml-2"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill={theme === "light" ? "yellow" : "none"}
@@ -54,18 +55,23 @@ function Header() {
           <Link
             className="flex h-full w-full items-center justify-center text-xs text-white md:text-lg"
             href={"/"}
+            title="Go to Home"
           >
             Home
           </Link>
         </div>
-        <button className="show-modal mr-10" onClick={openCart}>
+        <button
+          className="show-modal mr-12"
+          onClick={openCart}
+          title="Your Cart"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-6 w-6"
+            className="h-8 w-8"
           >
             <path
               stroke-linecap="round"

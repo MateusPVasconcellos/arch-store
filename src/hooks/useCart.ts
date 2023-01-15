@@ -1,80 +1,8 @@
-import { useEffect, useState } from "react";
-import api from "../services/api";
-import useLocalStorage from "./useLocalStorage";
+import { useContext } from "react";
+import CartContext from "../contexts/cartContext";
 
-interface ICartItem {
-  id: number;
-  quantity: number;
+export function useCart() {
+  const context = useContext(CartContext);
+
+  return context;
 }
-
-export const useCart = () => {
-  const [cartItems, setCartItems] = useLocalStorage("shopping-cart", []);
-  const [itemsDetails, setItemsDetails] = useState<any>([]);
-  const [isLoadingCart, setIsLoadingCart] = useState<boolean>(false);
-
-  useEffect(() => {
-    getCartItemsDetails(cartItems);
-  }, [cartItems]);
-
-  function increaseItem(id: number) {
-    setCartItems((currentItems: any) => {
-      if (currentItems.find((item: any) => item.id === id) == null) {
-        return [...currentItems, { id, quantity: 1 }];
-      } else {
-        return currentItems.map((item: any) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity + 1 };
-          } else {
-            console.log(item);
-            return item;
-          }
-        });
-      }
-    });
-  }
-
-  function decreaseItem(itemId: number) {
-    setCartItems((currentItems: any) => {
-      if (
-        currentItems.find((item: any) => item.id === itemId)?.quantity === 1
-      ) {
-        return currentItems.filter((item: any) => item.id !== itemId);
-      } else {
-        return currentItems.map((item: any) => {
-          if (item.id === itemId) {
-            return { ...item, quantity: item.quantity - 1 };
-          } else {
-            return item;
-          }
-        });
-      }
-    });
-  }
-
-  const getCartItemsDetails = async (itens: any[]) => {
-    try {
-      setIsLoadingCart(true);
-      const data = await Promise.all(
-        itens.map(async (item) => {
-          const response = await api.get(
-            `products/${item.id}?&select=price,title,thumbnail`
-          );
-          return { ...response, quantity: item.quantity };
-        })
-      );
-      console.log(data);
-      setItemsDetails(data);
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setIsLoadingCart(false);
-    }
-  };
-
-  return {
-    decreaseItem,
-    increaseItem,
-    itemsDetails,
-    cartItems,
-  };
-};

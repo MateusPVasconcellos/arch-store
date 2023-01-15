@@ -1,17 +1,26 @@
 import React from "react";
 import Image from "next/image";
+import { useCart } from "../hooks/useCart";
 
 interface CartItemProps {
   imageUrl: string;
   productName: string;
   price: number;
   quantity: number;
+  id: number;
 }
 
-function CartItem({ imageUrl, productName, price, quantity }: CartItemProps) {
+function CartItem({
+  imageUrl,
+  productName,
+  price,
+  quantity,
+  id,
+}: CartItemProps) {
+  const { decreaseOneItem } = useCart();
   return (
     <div
-      className="mt-4 ml-3 flex h-24 w-44 rounded bg-gray-300 hover:bg-gray-400 dark:bg-gray-600
+      className="mt-4 ml-3 flex h-28 w-44 rounded bg-gray-300 hover:bg-gray-400 dark:bg-gray-600
      dark:hover:bg-gray-800 md:ml-6 md:h-36 md:w-56"
     >
       <div className="md:h-38 relative m-2 block h-16 w-20">
@@ -27,6 +36,16 @@ function CartItem({ imageUrl, productName, price, quantity }: CartItemProps) {
         <h3 className="ml-2 text-xs text-gray-800 dark:text-white md:mt-2 md:text-[14px]">
           quantity: {quantity}
         </h3>
+        <button
+          className="mt-2 rounded-xl bg-blue-400 p-1
+                   text-[10px] dark:bg-blue-600 md:text-sm"
+          onClick={() => {
+            decreaseOneItem(id);
+          }}
+          title="Decrease one"
+        >
+          Decrease one
+        </button>
       </div>
     </div>
   );
