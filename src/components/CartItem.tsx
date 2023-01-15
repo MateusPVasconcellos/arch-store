@@ -37,7 +37,7 @@ function CartItem({
           quantity: {quantity}
         </h3>
         <button
-          className="mt-2 rounded-xl bg-blue-400 p-1
+          className="mt-1 rounded-xl bg-blue-400 p-1
                    text-[10px] dark:bg-blue-600 md:text-sm"
           onClick={() => {
             decreaseOneItem(id);

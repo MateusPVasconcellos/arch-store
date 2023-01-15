@@ -27,7 +27,7 @@ export default function Home() {
               New Season: Developer Stuff
             </h1>
             <h2 className="w-40 break-words font-mono text-sm font-bold text-gray-700 md:w-full md:text-2xl">
-              Technologies and Accessories
+              Technology and Accessories
             </h2>
           </div>
         </div>

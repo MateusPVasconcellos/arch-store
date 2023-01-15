@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ArcH Store
+Desafio - Front End - Janeiro/2023
 
-## Getting Started
+rocket Começando
+Baixe ou clone o projeto para sua maquina.
+Projeto desenvolvido em OS Linux Ubuntu 20.4.
 
-First, run the development server:
+wrench
+Insira na raiz do projeto para subir containers com db, app, e realizar migrations:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+docker-compose up
+gear Testar End Points no Postman
+Va na sua Workspace do Postman e importe a collection via link.
+Link:
+https://www.getpostman.com/collections/f38b69e5a08a0880af75
+gear Executando os testes
+Realizar testes automatizados, insira na raiz do projeto:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+docker container exec prova-estagio-backend_app_1 npm test
+gear Executando os desafios
+Na raiz do projeto entre com:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Primeiro instale dependências:
+npm install axios --save
+Rode os desafios:
+npm run desafios
+Desafios serao impressos em sequência.
+Ou:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+node <nome do arquivo>
+hammer_and_wrench Construído com
+Express - O framework web usado.
+Sequelize - ORM.
+Postgres - Banco de dados relacional.
+black_nib Autor
+Desenvolvedor - Mateus de Paula Vasconcellos
+gift Expressões de gratidão
+Muito feliz por participar do processo de seleção para a Smart NX, foi um grande desafio, que com certeza contribuiu para o meu sonho de me tornar um grande desenvolvedor! Obrigado !!
