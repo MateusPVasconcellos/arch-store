@@ -1,38 +1,33 @@
-ArcH Store
-Desafio - Front End - Janeiro/2023
+<h1>ArcH Store</h1>
+Desafio - Front End - Janeiro/2023 🚀🚀
 
-rocket Começando
+🚀 Não faz uso de bibliotecas de componentes, apenas css, html e typescript 🤠 🤠 
+
+<h2>🚀  Começando</h2>
+
 Baixe ou clone o projeto para sua maquina.
+
+`git clone https://github.com/MateusPVasconcellos/arch-store.git`
+
 Projeto desenvolvido em OS Linux Ubuntu 20.4.
 
-wrench
-Insira na raiz do projeto para subir containers com db, app, e realizar migrations:
+🚀 Insira na raiz do projeto para instalar dependências:
 
-docker-compose up
-gear Testar End Points no Postman
-Va na sua Workspace do Postman e importe a collection via link.
-Link:
-https://www.getpostman.com/collections/f38b69e5a08a0880af75
-gear Executando os testes
-Realizar testes automatizados, insira na raiz do projeto:
+`npm install`
 
-docker container exec prova-estagio-backend_app_1 npm test
-gear Executando os desafios
-Na raiz do projeto entre com:
+em seguida, insira para rodar projeto em desenvolvimento:
 
-Primeiro instale dependências:
-npm install axios --save
-Rode os desafios:
-npm run desafios
-Desafios serao impressos em sequência.
-Ou:
+`npm run dev`
 
-node <nome do arquivo>
-hammer_and_wrench Construído com
-Express - O framework web usado.
-Sequelize - ORM.
-Postgres - Banco de dados relacional.
-black_nib Autor
-Desenvolvedor - Mateus de Paula Vasconcellos
-gift Expressões de gratidão
-Muito feliz por participar do processo de seleção para a Smart NX, foi um grande desafio, que com certeza contribuiu para o meu sonho de me tornar um grande desenvolvedor! Obrigado !!
+<h2>🛠️ Construido com</h2>
+
++ React.js
++ Next.js
++ Typescript
++ TailwindCss
+
+<h2>🚀  Agradecimentos</h2>
+
+Muito feliz por participar do processo de seleção para a ArcH, com certeza contribuiu para o meu sonho de me tornar um grande desenvolvedor! Obrigado!
+
+
