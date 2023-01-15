@@ -1,7 +1,7 @@
 function Spinner(): JSX.Element {
   return (
     <>
-      <div aria-label="Loading..." role="status" className="fixed top-64">
+      <div aria-label="Loading..." role="status">
         <svg className="h-10 w-10 animate-spin" viewBox="3 3 18 18">
           <path
             className="fill-gray-200"

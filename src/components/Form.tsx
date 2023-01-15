@@ -30,12 +30,12 @@ function Form(): JSX.Element {
 
   return (
     <form
-      className="mt-6 flex flex-col items-start"
+      className="mt-6 flex flex-col items-center"
       onSubmit={(e) => onSubmit(e)}
     >
       <input
         className="mb-2 flex w-4/5 rounded-md border border-gray-600 bg-gray-300 
-        py-2 px-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-2/4"
+        p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
         placeholder="title"
@@ -45,7 +45,7 @@ function Form(): JSX.Element {
       />
       <input
         className="mb-2 flex w-4/5 rounded-md border border-gray-600 bg-gray-300 
-        py-2 px-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-2/4"
+        p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
         placeholder="description"
@@ -55,7 +55,7 @@ function Form(): JSX.Element {
       />
       <input
         className="mb-2 flex w-4/5 rounded-md border border-gray-600 bg-gray-300 
-        py-2 px-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-2/4"
+        p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
         placeholder="category"
@@ -65,7 +65,7 @@ function Form(): JSX.Element {
       />
       <input
         className="mb-2 flex w-4/5 rounded-md border border-gray-600 bg-gray-300 
-        py-2 px-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-2/4"
+        p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
         placeholder="price"
@@ -75,7 +75,7 @@ function Form(): JSX.Element {
       />
       <input
         className="mb-2 flex w-4/5 rounded-md border border-gray-600 bg-gray-300 
-        py-2 px-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-2/4"
+        p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
         placeholder="image url"

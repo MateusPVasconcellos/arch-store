@@ -19,7 +19,7 @@ function Category({
       className="block rounded bg-gray-300 p-1 hover:bg-gray-400
        dark:bg-gray-600 dark:hover:bg-gray-800 md:h-fit md:p-3"
     >
-      <div className="relative flex h-14 w-16 md:h-48 md:w-48">
+      <div className="relative flex h-14 w-16 md:h-48 md:w-36 lg:w-48">
         <Image src={imageUrl} alt="categorys" fill quality={100} />
       </div>
       <div className="mt-2 ml-2">

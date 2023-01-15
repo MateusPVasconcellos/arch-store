@@ -14,7 +14,9 @@ export default function WomensWatches(): JSX.Element | undefined {
         <main className="flex min-h-screen justify-center md:w-full">
           <ul className="inline md:flex md:w-full md:justify-evenly">
             {isLoadingWomensWatches ? (
-              <Spinner />
+              <div className="fixed top-64 md:fixed md:top-[30%]">
+                <Spinner />
+              </div>
             ) : (
               womensWatches.map((womensWatch) => (
                 <li>

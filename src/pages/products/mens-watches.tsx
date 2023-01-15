@@ -15,7 +15,9 @@ export default function MansWatches(): JSX.Element | undefined {
         <main className="flex min-h-screen justify-center md:w-full">
           <ul className="inline md:flex md:w-full md:justify-evenly">
             {isLoadingMensWatches ? (
-              <Spinner />
+              <div className="fixed top-64 md:fixed md:top-[30%]">
+                <Spinner />
+              </div>
             ) : (
               mensWatches.map((mensWatch) => (
                 <li>
