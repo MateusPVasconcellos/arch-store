@@ -14,8 +14,8 @@ export default function MansWatches(): JSX.Element | undefined {
         <HeaderProducts />
         <main className="flex min-h-screen w-full justify-center">
           <ul
-            className="flex w-full flex-wrap md:ml-20 md:flex md:h-[450px]
-             md:max-h-[600px] lg:justify-evenly xl:justify-start"
+            className="flex w-full flex-wrap justify-center md:ml-28 md:flex
+             md:h-[450px] md:max-h-[600px] lg:justify-evenly xl:justify-start"
           >
             {isLoadingMensWatches ? (
               <div className="fixed top-64 md:fixed md:top-[30%]">

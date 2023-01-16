@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useRouter } from "next/router";
-import { IProduct, IProducts } from "../interfaces/IProduct";
+import { IProduct } from "../interfaces/IProduct";
+import { closeModalAddItem } from "../components/AddItemModal";
 
 export const useApi = () => {
   const [categories, setCategories] = useState<string[]>([]);
@@ -78,6 +79,24 @@ export const useApi = () => {
       return "https://i.dummyjson.com/data/products/4/2.jpg";
   };
 
+  const createProduct = (values: any) => {
+    try {
+      const data = {
+        title: values.title,
+        description: values.description,
+        price: values.price,
+        category: values.category.value,
+        thumbnail: values.thumbnailUrl,
+      };
+      const product = api.post(`${values.category.value}`, data);
+      closeModalAddItem();
+      return product;
+    } catch (e) {
+      console.log(e);
+      throw new Error("Erro ao buscar produtos.");
+    }
+  };
+
   const getAllLaptops = async () => {
     try {
       setIsLoadingLaptops(true);
@@ -143,5 +162,6 @@ export const useApi = () => {
     isLoadingMensWatches,
     isLoadingWomensWatches,
     isLoadingSmartphones,
+    createProduct,
   };
 };

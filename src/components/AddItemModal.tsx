@@ -1,11 +1,11 @@
-import Form from "./Form";
+import { Form } from "./Form";
 
 export const openModalAddItem = () => {
   const modal = document.querySelector(".modal-add");
   modal?.classList.remove("hidden");
 };
 
-const closeModalAddItem = () => {
+export const closeModalAddItem = () => {
   const modal = document.querySelector(".modal-add");
   modal?.classList.add("hidden");
 };
@@ -14,7 +14,7 @@ function AddItemModal(): JSX.Element {
   return (
     <div
       className="modal-add fixed top-14 right-1/4 z-20 ml-10 hidden border 
-    border-gray-700 bg-gray-200 dark:bg-gray-400 md:w-72"
+    border-gray-700 bg-gray-200 dark:bg-gray-400 md:h-2/4 md:w-72"
     >
       <div className="flex">
         <button
@@ -36,7 +36,7 @@ function AddItemModal(): JSX.Element {
             />
           </svg>
         </button>
-        <div className="ml-6 mt-2 flex w-full justify-around font-bold">
+        <div className="ml-2 mt-2 flex w-full justify-around font-bold">
           <Form />
         </div>
       </div>

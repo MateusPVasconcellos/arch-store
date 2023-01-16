@@ -16,7 +16,7 @@ class Api {
 
   async post(url: string, item: any) {
     try {
-      const response = await AxiosClient.post(`${BASE_URL}${url}`, { item });
+      const response = await AxiosClient.post(`${BASE_URL}${url}`, item);
       return response.data;
     } catch (e) {
       console.error(e);

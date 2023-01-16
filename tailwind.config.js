@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.tsx"],
+  content: [
+    "./src/**/*.tsx",
+    "./node_modules/react-tailwindcss-select/dist/index.esm.js",
+  ],
   darkMode: "class",
   theme: {
     extend: {
