@@ -35,7 +35,6 @@ export function Form(): JSX.Element {
     onSubmit: async (values) => {
       await createProduct(values);
       await resetForm();
-      window.location.reload();
     },
   });
 

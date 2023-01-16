@@ -3,6 +3,7 @@ import api from "../services/api";
 import { useRouter } from "next/router";
 import { IProduct } from "../interfaces/IProduct";
 import { closeModalAddItem } from "../components/AddItemModal";
+import { toast } from "react-toastify";
 
 export const useApi = () => {
   const [categories, setCategories] = useState<string[]>([]);
@@ -68,35 +69,6 @@ export const useApi = () => {
     }
   };
 
-  const getImageForCategory = (category: string) => {
-    if (category === "mens watches")
-      return "https://i.dummyjson.com/data/products/61/thumbnail.jpg";
-    if (category === "womens watches")
-      return "https://i.dummyjson.com/data/products/68/thumbnail.webp";
-    if (category === "laptops")
-      return "https://i.dummyjson.com/data/products/10/2.jpg";
-    if (category === "smartphones")
-      return "https://i.dummyjson.com/data/products/4/2.jpg";
-  };
-
-  const createProduct = (values: any) => {
-    try {
-      const data = {
-        title: values.title,
-        description: values.description,
-        price: values.price,
-        category: values.category.value,
-        thumbnail: values.thumbnailUrl,
-      };
-      const product = api.post(`${values.category.value}`, data);
-      closeModalAddItem();
-      return product;
-    } catch (e) {
-      console.log(e);
-      throw new Error("Erro ao buscar produtos.");
-    }
-  };
-
   const getAllLaptops = async () => {
     try {
       setIsLoadingLaptops(true);
@@ -146,6 +118,39 @@ export const useApi = () => {
       throw new Error("Erro ao buscar produtos.");
     } finally {
       setIsLoadingWomensWatches(false);
+    }
+  };
+
+  const getImageForCategory = (category: string) => {
+    if (category === "mens watches")
+      return "https://i.dummyjson.com/data/products/61/thumbnail.jpg";
+    if (category === "womens watches")
+      return "https://i.dummyjson.com/data/products/68/thumbnail.webp";
+    if (category === "laptops")
+      return "https://i.dummyjson.com/data/products/10/2.jpg";
+    if (category === "smartphones")
+      return "https://i.dummyjson.com/data/products/4/2.jpg";
+  };
+
+  const createProduct = async (values: any) => {
+    try {
+      const data = {
+        title: values.title,
+        description: values.description,
+        price: values.price,
+        category: values.category.value,
+        thumbnail: values.thumbnailUrl,
+      };
+      const product = await api.post(`${values.category.value}`, data);
+      closeModalAddItem();
+      await toast.success("Product created successfully!");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+      return product;
+    } catch (e) {
+      console.log(e);
+      throw new Error("Erro ao buscar produtos.");
     }
   };
 

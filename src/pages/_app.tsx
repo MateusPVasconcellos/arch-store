@@ -6,6 +6,8 @@ import Header from "../components/Header";
 import CartModal from "../components/CartModal";
 import { CartContextProvider } from "../contexts/cartContext";
 import AddItemModal from "../components/AddItemModal";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -16,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       </Head>
       <CartContextProvider>
         <ThemeProvider attribute="class" defaultTheme="light">
+          <ToastContainer position="top-center" />
           <Header />
           <AddItemModal />
           <CartModal />
