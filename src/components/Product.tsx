@@ -18,11 +18,11 @@ function Product({
 }: ProductProps): JSX.Element {
   return (
     <div
-      className="mx-5 mt-5 flex  rounded bg-gray-300 hover:bg-gray-400 dark:bg-gray-600
-     dark:hover:bg-gray-800 md:h-[450px] md:max-h-[600px] lg:ml-6"
+      className="mx-5 mt-5 flex w-72 rounded bg-gray-300 hover:bg-gray-400 dark:bg-gray-600
+     dark:hover:bg-gray-800 md:h-[400px] md:max-h-[600px] lg:ml-6"
     >
-      <section className="mx-2 block w-44 justify-center">
-        <div className="relative m-2 block h-32 w-40 md:h-40">
+      <section className="mx-2 block justify-center">
+        <div className="relative m-2 block h-36">
           <Image src={imageUrl} alt="products" fill quality={100} />
         </div>
         <div>

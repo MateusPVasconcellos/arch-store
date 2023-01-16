@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <title>ArcH-Store</title>
       </Head>
       <CartContextProvider>
-        <ThemeProvider attribute="class">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
           <AddItemModal />
           <CartModal />

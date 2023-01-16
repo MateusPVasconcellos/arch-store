@@ -9,11 +9,11 @@ export default function Laptops(): JSX.Element | undefined {
 
   return (
     laptops && (
-      <div className="mx-auto w-full justify-center text-base">
+      <div className="w-full justify-center text-base">
         <HeaderProducts />
         <div className="flex items-start justify-center">
           <main className="flex min-h-screen w-full justify-center">
-            <ul className="flex w-full flex-wrap justify-center md:flex md:h-[450px] md:max-h-[600px]">
+            <ul className="flex w-full flex-wrap justify-evenly md:flex md:h-[450px] md:max-h-[600px]">
               {isLoadingLaptops ? (
                 <div className="fixed top-64 md:fixed md:top-[30%]">
                   <Spinner />
