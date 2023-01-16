@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { AxiosClient } from "../config/axios/axios-config";
 import { IProducts } from "../interfaces/IProduct";
-const BASE_URL = "https://dummyjson.com/";
+const BASE_URL = "http://localhost:3000/";
 
 class Api {
   async get(url: string) {

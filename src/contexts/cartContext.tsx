@@ -3,9 +3,9 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import api from "../services/api";
 
 export interface CartContextProps {
-  getCartItemsDetails: (any: []) => any;
+  getCartItemsDetails: (any: [], category: string) => any;
   decreaseOneItem: (itemId: number) => void;
-  addOneMoreItem: (id: number) => void;
+  addOneMoreItem: (id: number, category: string) => void;
   cartItems: never[];
   itemsDetails: any[];
   clearAll: () => void;
@@ -30,17 +30,17 @@ export function CartContextProvider({
     getCartItemsDetails(cartItems);
   }, [cartItems]);
 
-  function addOneMoreItem(id: number) {
+  function addOneMoreItem(id: number, category: string) {
     setCartItems((currentItems: any) => {
       if (currentItems.find((item: any) => item.id === id) == null) {
         openCart();
-        return [...currentItems, { id, quantity: 1 }];
+        return [...currentItems, { id, quantity: 1, category }];
       } else {
         openCart();
         return currentItems.map((item: any) => {
           if (item.id === id) {
             openCart();
-            return { ...item, quantity: item.quantity + 1 };
+            return { ...item, quantity: item.quantity + 1, category };
           } else {
             console.log(item);
             return item;
@@ -71,9 +71,7 @@ export function CartContextProvider({
       setIsLoadingCart(true);
       const data = await Promise.all(
         itens.map(async (item) => {
-          const response = await api.get(
-            `products/${item.id}?&select=price,title,thumbnail`
-          );
+          const response = await api.get(`${item.category}/${item.id}`);
           return { ...response, quantity: item.quantity };
         })
       );

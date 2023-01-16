@@ -43,7 +43,7 @@ export default function Home(): JSX.Element {
         </div>
         <ul className="flex justify-evenly md:ml-0">
           {isLoadingCategories ? (
-            <div className="fixed top-64  md:fixed md:top-[90%] xl:fixed xl:top-[75%]">
+            <div className="fixed top-64 md:fixed md:top-[90%] xl:fixed xl:top-[75%]">
               <Spinner />
             </div>
           ) : (

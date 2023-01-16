@@ -43,7 +43,7 @@ export const useApi = () => {
   const getAllCategories = async () => {
     try {
       setIsLoadingCategories(true);
-      const data = await api.get("products/categories");
+      const data = await api.get("categories");
       const filter1 = "smartphones";
       const filter2 = "laptops";
       const filter3 = "mens-watches";
@@ -81,8 +81,8 @@ export const useApi = () => {
   const getAllLaptops = async () => {
     try {
       setIsLoadingLaptops(true);
-      const data = await api.get(`products/category/laptops?limit=4`);
-      return setLaptops(data?.products);
+      const data = await api.get(`products/category/laptops`);
+      return setLaptops(data);
     } catch (e) {
       console.log(e);
       throw new Error("Erro ao buscar produtos.");
@@ -94,8 +94,8 @@ export const useApi = () => {
   const getAllSmartphones = async () => {
     try {
       setIsLoadingSmartphones(true);
-      const data = await api.get(`products/category/smartphones?limit=4`);
-      return setSmartphones(data?.products);
+      const data = await api.get(`products/category/smartphones`);
+      return setSmartphones(data);
     } catch (e) {
       console.log(e);
       throw new Error("Erro ao buscar produtos.");
@@ -107,8 +107,8 @@ export const useApi = () => {
   const getAllMensWatches = async () => {
     try {
       setIsLoadingMensWatches(true);
-      const data = await api.get(`products/category/mens-watches?limit=4`);
-      return setMensWatches(data?.products);
+      const data = await api.get(`products/category/mens-watches`);
+      return setMensWatches(data);
     } catch (e) {
       console.log(e);
       throw new Error("Erro ao buscar produtos.");
@@ -120,8 +120,8 @@ export const useApi = () => {
   const getAllWomensWatches = async () => {
     try {
       setIsLoadingWomensWatches(true);
-      const data = await api.get(`products/category/womens-watches?limit=4`);
-      return setWomensWatches(data?.products);
+      const data = await api.get(`products/category/womens-watches`);
+      return setWomensWatches(data);
     } catch (e) {
       console.log(e);
       throw new Error("Erro ao buscar produtos.");

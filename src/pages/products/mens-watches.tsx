@@ -12,8 +12,8 @@ export default function MansWatches(): JSX.Element | undefined {
     mensWatches && (
       <div className="mx-auto w-full justify-center text-base">
         <HeaderProducts />
-        <main className="flex min-h-screen justify-center md:w-full">
-          <ul className="inline md:flex md:w-full md:justify-evenly">
+        <main className="flex min-h-screen w-full justify-center">
+          <ul className="flex w-2/4 flex-wrap justify-center md:flex md:w-full">
             {isLoadingMensWatches ? (
               <div className="fixed top-64 md:fixed md:top-[30%]">
                 <Spinner />
@@ -29,7 +29,10 @@ export default function MansWatches(): JSX.Element | undefined {
                     key={mensWatch.id}
                     id={mensWatch.id}
                   />
-                  <AddItemButton id={mensWatch.id} />
+                  <AddItemButton
+                    id={mensWatch.id}
+                    category={mensWatch.category}
+                  />
                 </li>
               ))
             )}
