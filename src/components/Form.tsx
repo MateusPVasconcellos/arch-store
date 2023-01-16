@@ -35,6 +35,7 @@ export function Form(): JSX.Element {
     onSubmit: async (values) => {
       await createProduct(values);
       await resetForm();
+      window.location.reload();
     },
   });
 
@@ -55,7 +56,7 @@ export function Form(): JSX.Element {
 
   return (
     <form
-      className="mt-6 flex flex-col items-center"
+      className="mt-6 flex w-full flex-col items-center"
       onSubmit={(e) => onSubmit(e)}
     >
       <input

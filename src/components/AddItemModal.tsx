@@ -16,6 +16,11 @@ function AddItemModal(): JSX.Element {
       className="modal-add fixed top-14 right-1/4 z-20 ml-10 hidden border 
     border-gray-700 bg-gray-200 dark:bg-gray-400 md:h-2/4 md:w-72"
     >
+      <div className="flex justify-center">
+        <h1 className="mt-3 text-xs font-bold text-gray-800 dark:text-white md:text-base">
+          New Product
+        </h1>
+      </div>
       <div className="flex">
         <button
           className="close-modal fixed top-16"
@@ -36,9 +41,9 @@ function AddItemModal(): JSX.Element {
             />
           </svg>
         </button>
-        <div className="ml-2 mt-2 flex w-full justify-around font-bold">
-          <Form />
-        </div>
+      </div>
+      <div className="ml-2 mt-2 flex w-full justify-around font-bold">
+        <Form />
       </div>
     </div>
   );

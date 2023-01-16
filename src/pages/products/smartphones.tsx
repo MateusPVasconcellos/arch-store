@@ -13,7 +13,7 @@ export default function Smartphones(): JSX.Element | undefined {
         <HeaderProducts />
         <main className="flex min-h-screen w-full justify-center">
           <ul
-            className="flex w-full flex-wrap justify-center md:ml-28 md:flex
+            className="flex w-full flex-wrap justify-center md:ml-6 md:flex
              md:h-[450px] md:max-h-[600px] lg:justify-evenly xl:justify-start"
           >
             {isLoadingSmartphones ? (
