@@ -1,5 +1,5 @@
 <h1>ArcH Store</h1>
-Desafio - Front End - Janeiro/2023 🚀🚀 </br>
+<h2>Desafio - Front End - Janeiro/2023 🚀🚀 </h2>
 
 🚀 Não faz uso de bibliotecas de componentes, apenas css, html e typescript 🤠 🤠
 
