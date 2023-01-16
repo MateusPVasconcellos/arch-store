@@ -1,6 +1,6 @@
 <h1>ArcH Store</h1>
 Desafio - Front End - Janeiro/2023 🚀🚀
-
+</br>
 🚀 Não faz uso de bibliotecas de componentes, apenas css, html e typescript 🤠 🤠
 
 🚀 Projeto desenvolvido em OS Linux Ubuntu.

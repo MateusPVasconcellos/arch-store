@@ -64,7 +64,7 @@ export function Form(): JSX.Element {
         p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
-        placeholder="title"
+        placeholder="Name"
         onChange={(e) => onChange(e)}
         value={values.title}
         name="title"
@@ -76,7 +76,7 @@ export function Form(): JSX.Element {
         p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
-        placeholder="description"
+        placeholder="Description"
         onChange={(e) => onChange(e)}
         value={values.description}
         name="description"
@@ -90,7 +90,7 @@ export function Form(): JSX.Element {
         p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
-        placeholder="price"
+        placeholder="Price"
         onChange={(e) => onChange(e)}
         value={values.price}
         name="price"
@@ -102,7 +102,7 @@ export function Form(): JSX.Element {
         p-2 text-gray-800 dark:bg-gray-800 dark:text-gray-300 md:w-3/4"
         type="text"
         required
-        placeholder="image url"
+        placeholder="Image Url"
         onChange={(e) => onChange(e)}
         value={values.thumbnailUrl}
         name="thumbnailUrl"
@@ -114,7 +114,7 @@ export function Form(): JSX.Element {
       <div className="w-4/5 md:w-3/4">
         <Select
           options={options}
-          placeholder="category"
+          placeholder="Category"
           primaryColor={"indigo"}
           value={values.category as any}
           onChange={handleChangeSelect}
