@@ -1,9 +1,10 @@
 {
-  "name": "list-repositories-web",
+  "name": "arch-store",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
+    "server": "json-server --watch src/data/server.json",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

@@ -15,11 +15,15 @@ Baixe ou clone o projeto para sua maquina.
 
 `npm install`
 
+insira para subir backend
+
+`npm run server`
+
 em seguida, insira para rodar projeto em desenvolvimento:
 
 `npm run dev`
 
-disponivel em http://localhost:3000/
+disponivel em http://localhost:3001/
 
 <h2>🛠️ Construido com</h2>
 
